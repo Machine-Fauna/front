@@ -1,0 +1,19 @@
+version: "3.7"
+services:
+  mf-front:
+    build:
+      context: .
+      dockerfile: .local/Dockerfile
+    container_name: mf-front
+    stdin_open: true
+    ports:
+      - 3000:3000
+    volumes:
+      - "./src:/app/src"
+      - "./public:/app/public"
+      - "node_modules:/app/node_modules"
+      - "dist:/app/dist"
+
+volumes:
+  node_modules:
+  dist:
