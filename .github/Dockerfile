@@ -19,7 +19,7 @@ FROM nginx:1.17-alpine
 
 WORKDIR /var/www
 
-COPY --from=builder /app/dist   ./
+COPY --from=builder /app/build  ./
 COPY ./public                   public
 COPY .github/*.conf             /etc/nginx/conf.d/
 
