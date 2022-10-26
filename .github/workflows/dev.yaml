@@ -4,7 +4,8 @@ name: Development
 
 on:
   push:
-    branches: [ ! master ]
+    branches: 
+      - ! "master"
 
 jobs:
   # build:
