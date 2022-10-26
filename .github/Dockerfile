@@ -12,7 +12,7 @@ COPY ./public  public
 COPY ./src     src
 
 # Build application
-RUN npm build
+RUN npm run build
 
 # Copy to production image
 FROM nginx:1.17-alpine
