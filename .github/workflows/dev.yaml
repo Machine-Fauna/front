@@ -26,7 +26,7 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: Checkout 
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup application on the dev
         run: docker compose -f docker-compose.prod.yaml up --build -d
