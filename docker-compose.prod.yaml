@@ -5,6 +5,7 @@ services:
       context: .
       dockerfile: .github/Dockerfile
     container_name: mf-front
+    restart: unless-stopped
     stdin_open: true
     expose:
       - 80
