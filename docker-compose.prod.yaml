@@ -16,6 +16,8 @@ services:
       retries: 10
     networks:
       - mf
+    labels:
+      - traefik.http.routers.mf-front.rule=Host(`front.mf`)
 
 
 networks:

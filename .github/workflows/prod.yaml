@@ -1,0 +1,23 @@
+---
+
+name: Production
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deliver:
+    runs-on: 
+      - self-hosted
+      - production
+    steps:
+      - name: Checkout 
+        uses: actions/checkout@v2
+
+      - name: Setup application on the prod
+        run: |
+          docker compose -f docker-compose.prod.yaml build
+          docker compose -f docker-compose.prod.yaml down
+          docker compose -f docker-compose.prod.yaml up -d
