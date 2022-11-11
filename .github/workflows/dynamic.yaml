@@ -5,9 +5,9 @@ name: Dynamic
 on:
   push:
     branches:
+      - "*"
       - "!dev"
       - "!master"
-      - "*"
 
 jobs:
   deliver:
@@ -24,6 +24,6 @@ jobs:
 
       - name: Setup front-${GITHUB_REF_NAME}.mf application
         run: |
-          docker compose -f docker-compose.dynamic.yam build
-          docker compose -f docker-compose.dynamic.yam down
-          docker compose -f docker-compose.dynamic.yam up -d
+          docker compose -f docker-compose.dynamic.yaml build
+          docker compose -f docker-compose.dynamic.yaml down
+          docker compose -f docker-compose.dynamic.yaml up -d
