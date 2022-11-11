@@ -1,0 +1,28 @@
+---
+
+name: Dynamic
+
+on:
+  push:
+    branches:
+      - ! dev
+      - ! master
+
+jobs:
+  deliver:
+    runs-on: 
+      - self-hosted
+      - development
+    steps:
+      - name: Checkout 
+        uses: actions/checkout@v2
+
+      - name: Generate docker-compose file
+        run: |
+          envsubst < docker-compose.yaml.tpl > docker-compose.dynamic.yaml
+
+      - name: Setup front-${GITHUB_REF_NAME}.mf application
+        run: |
+          docker compose -f docker-compose.dynamic.yam build
+          docker compose -f docker-compose.dynamic.yam down
+          docker compose -f docker-compose.dynamic.yam up -d
