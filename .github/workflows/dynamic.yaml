@@ -22,7 +22,7 @@ jobs:
         run: |
           envsubst < docker-compose.yaml.tpl > docker-compose.dynamic.yaml
 
-      - name: Setup front-${GITHUB_REF_NAME}.mf application
+      - name: Setup front-{{ GITHUB_REF_NAME }}.mf application
         run: |
           docker compose -f docker-compose.dynamic.yaml build
           docker compose -f docker-compose.dynamic.yaml down
