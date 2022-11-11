@@ -5,8 +5,8 @@ name: Dynamic
 on:
   push:
     branches:
-      - "!dev"
-      - "!master"
+      - ! dev
+      - ! master
 
 jobs:
   deliver:
